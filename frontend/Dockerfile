@@ -1,17 +1,21 @@
-# Use an official node runtime as a parent image
-FROM node:10
+# pull official base image
+FROM node:13.12.0-alpine
 
-WORKDIR /app/
+# set working directory
+WORKDIR /app/frontend
 
-# Install dependencies
-COPY package.json yarn.lock /app/
+# add `/app/frontend/node_modules/.bin` to $PATH
+ENV PATH /app/frontend/node_modules/.bin:$PATH
 
-RUN npm install
+# install app dependencies
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install --silent
+RUN npm install react-scripts@3.4.1 -g --silent
 
-# Add rest of the client code
-COPY . /app/
+# add app
+COPY . ./
 
-EXPOSE 3000
-
-CMD npm start
+# start app
+CMD ["npm", "start"]
 
