@@ -17,3 +17,9 @@ django-storages
 boto3
 bcrypt
 faker
+celery
+redis
+channels
+daphne
+gunicorn
+channels-redis

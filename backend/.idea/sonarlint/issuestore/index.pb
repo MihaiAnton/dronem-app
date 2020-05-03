@@ -1,8 +1,6 @@
 
 =
 users/urls.py,7/e/7ebb6dc32a2768a7e73ce1c83409f9c85bd4ad6a
-E
-environments/tests.py,e/d/eda1ad5b6934592fbd624574cc66311c45eaa04b
 >
 dronem/urls.py,6/6/66b4d3bfca5738e23d564b376f9848a7a73a0237
 >

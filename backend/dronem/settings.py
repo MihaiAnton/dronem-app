@@ -24,12 +24,13 @@ SECRET_KEY = '&)xunqbc^o@!n6xm*uorlw$8y0-n1)pdnd*la480e2c926cau-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 # Application definition
 
 INSTALLED_APPS = [
     # Django Apps
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -83,7 +84,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'dronem.wsgi.application'
+# WSGI_APPLICATION = 'dronem.wsgi.application'
+ASGI_APPLICATION = 'dronem.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -160,3 +162,12 @@ RESET_PASSWORD_DOMAIN = 'http://localhost:3000/password-reset'
 PASSWORD_RESET_TIMEOUT_SECONDS = 10 * 60  # 10 minutes
 
 DEFAULT_FROM_EMAIL = 'dronem.platform@gmail.com'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379), ("127.0.0.1", 6379), ("0.0.0.0", 6379)],
+        },
+    },
+}
