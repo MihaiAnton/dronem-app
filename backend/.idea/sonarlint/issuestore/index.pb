@@ -105,3 +105,12 @@ A
 utils/fixtures.py,3/4/34667076e041a0953a45041216daf205eb23487e
 ;
 rl/views.py,3/8/3895c4d964cc48eec5f54a252e161727c6f5e03a
+A
+dronem/routing.py,4/a/4addde137cf555414754b8f0c1a07876516375b7
+?
+rl/consumers.py,2/5/251ddf6553c82dfadb94d0e6fab8fa9a2020ba61
+:
+
+Dockerfile,6/6/6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+B
+docker-compose.yml,3/5/35b8c13cf2eb2a194eada000eb310d65aed53b2a

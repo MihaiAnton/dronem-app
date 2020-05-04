@@ -13,11 +13,11 @@ services:
       MYSQL_ROOT_PASSWORD: 'mysql123'
   backend:
     build: 
-      context: .
+      context: ./backend
       args:
         requirements_file: requirements.txt
     volumes:
-      - ./app/backend
+      - ./backend:/app/backend
     ports:
       - "8000:8000"
     stdin_open: true
