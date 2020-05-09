@@ -1,19 +1,17 @@
 # Use an official Python runtime as a parent image
-FROM python:3.6
+FROM python:3.7
+ENV PYTHONBUFFERED 1
 
 # Adding backend directory to make absolute filepaths consistent across services
-WORKDIR /app/backend
+RUN mkdir /code
+WORKDIR /code
 
 # Install Python dependencies
-COPY requirements.txt /app/backend
-RUN pip3 install --upgrade pip -r requirements.txt
+COPY requirements.txt /code
+
+RUN pip install -r requirements.txt
+RUN pip install docker-compose
+RUN pip install celery
 
 # Add the rest of the code
-COPY . /app/backend
-
-# Make port 8000 available for the app
-EXPOSE 8000
-
-# Be sure to user 0.0.0.0 for the host within the Docker container,
-# otherwise the brwoser won't be able to find int
-CMD python3 manage.py runserver 0.0.0.0:8000
+COPY . /code/

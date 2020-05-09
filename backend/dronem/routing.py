@@ -5,14 +5,14 @@
 """
 
 from channels.routing import ProtocolTypeRouter, URLRouter
-from django.urls import path
+from django.urls import re_path
 from channels.auth import AuthMiddlewareStack
-from rl.consumers import RlConsumer
+import rl.consumers
 
 application = ProtocolTypeRouter({
     'websocket': AuthMiddlewareStack(
         URLRouter([
-            path('test/', RlConsumer)
+            re_path(r'ws/train_updates/(?P<group_id>\w+)/$', rl.consumers.RlConsumer)
         ])
     )
 })

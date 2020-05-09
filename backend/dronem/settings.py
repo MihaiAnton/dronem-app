@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
 
     # 3rd party apps
     'rest_framework',
@@ -57,6 +58,8 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -167,7 +170,9 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("localhost", 6379), ("127.0.0.1", 6379), ("0.0.0.0", 6379)],
+            "hosts": [("localhost", 6379), ("127.0.0.1", 6379), ("0.0.0.0", 6379), ("redis", 6379)],
         },
     },
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
