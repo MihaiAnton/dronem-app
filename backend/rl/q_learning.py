@@ -12,6 +12,7 @@ import numpy as np
 
 from environments.env_interpretation.state_utils import get_state_from_observation
 from environments.envs import DronemEnv
+from utils.websocket_utils import send_to_websocket
 
 
 class QLearning:
@@ -121,6 +122,7 @@ class QLearning:
                 self.__stats['avg'].append(avg_reward)
                 self.__stats['min'].append(min_reward)
                 self.__stats['max'].append(max_reward)
+                send_to_websocket(self.__stats, "1")
                 print(f"EPISODE: {episode}, avg: {avg_reward}, min: {min_reward}, max: {max_reward}")
 
             if not episode % self.__q_table_every and episode > 0:

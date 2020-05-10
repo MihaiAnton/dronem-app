@@ -112,3 +112,11 @@ A
 :
 
 Dockerfile,6/6/6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+B
+docker-compose.yml,3/5/35b8c13cf2eb2a194eada000eb310d65aed53b2a
+H
+utils/websocket_utils.py,7/4/74fe09495ef729e8ca96bde1edc78270af9f9275
+B
+dronem/__init__.py,c/7/c72cfaaf1ec6d45ea55ca7412aeecbcb7e0ac95a
+@
+dronem/celery.py,8/8/8822539484a0888d47807e4bc6988222a866d1f5

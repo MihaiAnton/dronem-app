@@ -1,0 +1,2 @@
+celery worker -A dronem.celery
+docker run -p 6379:6379 -d redis:5
